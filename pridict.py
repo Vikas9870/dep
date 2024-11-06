@@ -5,10 +5,10 @@ from flask import Flask, request, jsonify
 from scipy.sparse import hstack
 from textstat import flesch_reading_ease
 from nltk.sentiment import SentimentIntensityAnalyzer
-
+from flask_cors import CORS  # Import CORS
 # Initialize the Flask app
 app = Flask(__name__)
-
+CORS(app)
 # Load the trained model, vectorizer, and sentiment analyzer
 with open('model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)
